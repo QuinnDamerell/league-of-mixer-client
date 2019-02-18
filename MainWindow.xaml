@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LeagueOfMixerClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="League of Mixer Client" Height="450" Width="800">
+    <StackPanel>
+        <TextBlock x:Name="ui_gameStateText" Margin="12" FontSize="18"/>
+        <ListView x:Name="ui_imageList" ItemsSource="{Binding ImagesItems, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:Name="SingleLineDataTemplate" >
+                    <StackPanel Orientation="Horizontal" Height="44" Background="LightBlue" >
+                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center"  Margin="12" />
+                        <Image Source="{Binding Image}" VerticalAlignment="Center"/>
+                        <Image Source="{Binding CrispyImage}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding Text}" VerticalAlignment="Center" Margin="12" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>
 </Window>

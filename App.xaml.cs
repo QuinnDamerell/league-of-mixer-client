@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueOfMixerClient.LeagueCore;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,13 @@ namespace LeagueOfMixerClient
     /// </summary>
     public partial class App : Application
     {
+        public static LeagueGameStream GameStream;
+
+        public App()
+        {
+            GameStream = new LeagueGameStream("League of Legends");
+            GameStream.Start();
+
+        }
     }
 }
